@@ -1,7 +1,7 @@
 package clockskew
 
 import (
-	"log"
+	//"log"
 	"fmt"
 )
 
