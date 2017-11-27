@@ -1,11 +1,9 @@
 package main
 
 import (
-	//"fmt"
 	"log"
 	"flag"
 	"os"
-	//"net"
 	"github.com/google/gopacket/pcap"
 	"github.com/go-clock-skew/clockskew"
 )

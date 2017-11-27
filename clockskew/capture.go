@@ -1,7 +1,6 @@
 package clockskew
 
 import (
-	//"log"
 	"time"
 	"encoding/binary"
 	"github.com/google/gopacket/pcap"

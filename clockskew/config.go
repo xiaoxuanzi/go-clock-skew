@@ -1,11 +1,7 @@
 package clockskew
 
 import (
-	//"fmt"
-	//"log"
-	//"strconv"
 	"os"
-	//"net"
 )
 
 type ClockSkew struct {
