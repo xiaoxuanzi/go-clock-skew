@@ -30,7 +30,6 @@ func handleDevice(device string) {
 
 func handleBPFFilter(device, bpFilter, storageFile  string) {
 
-
 	clockskew.BpConfig   = bpFilter
 	clockskew.DeviceName = device
 
@@ -42,7 +41,6 @@ func handleBPFFilter(device, bpFilter, storageFile  string) {
 	}
 
 	clockskew.StorageFile = newfile
-
 }
 
 func handleHelp(displayHelp bool) {
@@ -53,7 +51,6 @@ func handleHelp(displayHelp bool) {
 }
 
 func init(){
-
 
 	clockskew.ClockSkewChannel = make(chan clockskew.ClockSkew, 1000)
 	device  := flag.String("e", "eth0", "device name")
