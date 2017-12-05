@@ -3,8 +3,6 @@
 This project is prepare for [clock-skew](https://github.com/xiaoxuanzi/clock-skew).
 ## Usage
 <pre><code>
-go build<br>
-./go-clock-skew -h<br>
 Usage of ./go-clock-skew:<br>
   -e string<br>
     	device name (default "eth0")<br>
