@@ -58,7 +58,7 @@ func init(){
 
 	bpFilter := flag.String("filter", "tcp", "bpFilter")
 
-	storageFile := flag.String("f", "strorage.csv", "storage file")
+	storageFile := flag.String("f", "storage.csv", "storage file")
 
 	flag.Parse()
 
