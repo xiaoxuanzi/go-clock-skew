@@ -13,7 +13,8 @@ func Storage(){
 	for{
 		cs := <- ClockSkewChannel
 
-		item := fmt.Sprintf("%d %s %d %d %s %d %d\n",cs.Clock, cs.SrcIP, cs.SrcPort, cs.SrcTS, cs.DstIP, cs.DstPort, cs.DstTS)
+		item := fmt.Sprintf("%d %s %d %d \n",cs.Clock, cs.SrcIP, cs.SrcPort, cs.SrcTS)
+		//item := fmt.Sprintf("%d %s %d %d %s %d %d\n",cs.Clock, cs.SrcIP, cs.SrcPort, cs.SrcTS, cs.DstIP, cs.DstPort, cs.DstTS)
 		//log.Println(cs.Clock, cs.SrcIP, cs.SrcPort, cs.DstIP, cs.DstPort, cs.SrcTS, cs.DstTS)
 		StorageFile.WriteString(item)
 	}

@@ -6,6 +6,7 @@ import (
 	"github.com/google/gopacket/pcap"
 	"github.com/google/gopacket"
 	"github.com/google/gopacket/layers"
+	"github.com/gavv/monotime"
 )
 
 func CapturePacket(){
@@ -35,7 +36,6 @@ func CapturePacket(){
 		}
 		ip, _ := ipLayer.(*layers.IPv4)
 		srcIP := ip.SrcIP.String()
-		dstIP := ip.DstIP.String()
 
 		tcpLayer := packet.Layer(layers.LayerTypeTCP)
 		if tcpLayer == nil {
@@ -44,7 +44,6 @@ func CapturePacket(){
 
 		tcp, _ := tcpLayer.(*layers.TCP)
 		srcPort := tcp.SrcPort
-		dstPort := tcp.DstPort
 
 		for _, opt := range tcp.Options {
 			if opt.OptionType.String() != "Timestamps" {
@@ -52,16 +51,15 @@ func CapturePacket(){
 			}
 
 			srcTS := binary.BigEndian.Uint32(opt.OptionData[:4])
-			dstTS := binary.BigEndian.Uint32(opt.OptionData[4:8])
 
+			clock := monotime.Now()
 			cs := ClockSkew{
-				Clock : time.Now().UnixNano(),
+				//Clock : time.Now().UnixNano(),
+				Clock : int64(clock),
 				SrcIP : srcIP,
 				SrcPort : int(srcPort),
 				SrcTS : int(srcTS),
-				DstIP : dstIP,
-				DstPort : int(dstPort),
-				DstTS   : int(dstTS)}
+			}
 
 			ClockSkewChannel <- cs
 		}

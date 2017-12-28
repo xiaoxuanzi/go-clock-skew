@@ -10,9 +10,9 @@ type ClockSkew struct {
 	SrcIP       string   `json:srcIp`
 	SrcPort     int      `json:srcPort`
 	SrcTS       int      `json:srcTimeStamp`
-	DstIP       string   `json:dstIp`
-	DstPort     int      `json:dstPort`
-	DstTS       int      `json:dstTimeStamp`
+	//DstIP       string   `json:dstIp`
+	//DstPort     int      `json:dstPort`
+	//DstTS       int      `json:dstTimeStamp`
 
 }
 
