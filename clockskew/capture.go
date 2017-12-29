@@ -27,6 +27,7 @@ func CapturePacket(){
 	handle.SetBPFFilter(bpFilter)
 
 	packetSource := gopacket.NewPacketSource(handle, handle.LinkType())
+	//startClock := monotime.Now()
 
 	for packet := range packetSource.Packets() {
 
@@ -52,6 +53,7 @@ func CapturePacket(){
 
 			srcTS := binary.BigEndian.Uint32(opt.OptionData[:4])
 
+			//elapsed := monotime.Since(startClock) / 1000000000
 			clock := monotime.Now()
 			cs := ClockSkew{
 				//Clock : time.Now().UnixNano(),
