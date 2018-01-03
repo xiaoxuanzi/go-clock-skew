@@ -7,8 +7,8 @@ import (
 type ClockSkew struct {
 
 	Clock       int64    `json:clock`
-	SrcIP       string   `json:srcIp`
-	SrcPort     int      `json:srcPort`
+	Taddr       string   `json:taddr`
+	//SrcPort     int      `json:srcPort`
 	SrcTS       int      `json:srcTimeStamp`
 	//DstIP       string   `json:dstIp`
 	//DstPort     int      `json:dstPort`

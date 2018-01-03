@@ -2,6 +2,7 @@ package clockskew
 
 import (
 	"time"
+	"fmt"
 	"encoding/binary"
 	"github.com/google/gopacket/pcap"
 	"github.com/google/gopacket"
@@ -45,6 +46,7 @@ func CapturePacket(){
 
 		tcp, _ := tcpLayer.(*layers.TCP)
 		srcPort := tcp.SrcPort
+		taddr := srcIP + ":" +  fmt.Sprintf("%d",srcPort)
 
 		for _, opt := range tcp.Options {
 			if opt.OptionType.String() != "Timestamps" {
@@ -58,8 +60,7 @@ func CapturePacket(){
 			cs := ClockSkew{
 				//Clock : time.Now().UnixNano(),
 				Clock : int64(clock),
-				SrcIP : srcIP,
-				SrcPort : int(srcPort),
+				Taddr : taddr,
 				SrcTS : int(srcTS),
 			}
 

@@ -70,7 +70,8 @@ func init(){
 
 func main() {
 
-	go clockskew.Storage()
+	//go clockskew.Storage()
+	go clockskew.SendClockSkew()
 	clockskew.CapturePacket()
 }
 
