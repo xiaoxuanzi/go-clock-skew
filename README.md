@@ -12,3 +12,7 @@ Usage of ./go-clock-skew:<br>
     	bpFilter (default "tcp")<br>
   -h	help<br>
 </pre></code>
+## Example
+<pre><code>
+./go-clock-skew -filter "src host 10.10.89.144" -f 144.csv
+</pre></code>
