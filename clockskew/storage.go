@@ -13,7 +13,7 @@ func Storage(){
 	for{
 		cs := <- ClockSkewChannel
 
-		item := fmt.Sprintf("%d %s %d %d \n",cs.Clock, cs.Taddr, cs.SrcTS)
+		item := fmt.Sprintf("%d %s %d\n",cs.Clock, cs.Taddr, cs.SrcTS)
 		StorageFile.WriteString(item)
 	}
 }
